@@ -1,12 +1,14 @@
-const io=require('socket.io')(8000,{
-    cors:{
-        origin:'*',
-    }
-});
+const socketio=require('socket.io');
 const moment=require('moment');
-// const t=moment().format('h:mm a');
+const path=require('path');
+const http=require('http');
+const express=require('express');
 
+const app=express();
+const server=http.createServer(app);
+const io=socketio(server);
 
+app.use(express.static(path.join(__dirname, 'public')));
 const users={};
 io.on('connection',socket=>{
     socket.on('new-user-joined',usrname=>{
@@ -26,3 +28,7 @@ io.on('connection',socket=>{
         delete users[socket.id];
     }); 
 });
+
+const PORT=process.env.PORT||3000;
+
+server.listen(PORT,()=>console.log(`Server running on port: ${PORT}`));
