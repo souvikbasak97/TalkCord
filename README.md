@@ -19,8 +19,8 @@ Realtime Chat Application Using Node.js and Socket.io in Backend and HTML,CSS in
 </ul>
 
 ## How to clone app locally->
-Clone this repo->https://github.com/souvikbasak97/TalkCord.git
-Install all Dependencies->
+  <li>Clone this repo->https://github.com/souvikbasak97/TalkCord.git</li>
+  <li>Install all Dependencies-></li>
 <ul>
   <li>cd TalkCord</li>
   <li>npm install</li>
